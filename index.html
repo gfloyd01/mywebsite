@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Frontend</title>
+</head>
+<body>
+    <h1>Welcome to My Website</h1>
+    <button onclick="fetchData()">Fetch Students</button>
+    <pre id="response"></pre>
+
+    <script>
+    function fetchData() {
+        fetch('https://<your_ec2_public_ip>/students/all')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("response").textContent = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+    }
+    </script>
+</body>
+</html>
