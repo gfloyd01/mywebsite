@@ -12,7 +12,7 @@
 
     <script>
     function fetchData() {
-        fetch('https://34.227.108.99/students/all')
+        fetch('https://34.227.108.99/api/v1/students/all')
             .then(response => response.json())
             .then(data => {
                 document.getElementById("response").textContent = JSON.stringify(data, null, 2);
